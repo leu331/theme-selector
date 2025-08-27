@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Provider } from '../providers/chakra.provider';
+import { ChakrProvider } from '../providers/chakra.provider';
 
 export const metadata: Metadata = {
   title: 'Tarefai',
@@ -10,9 +10,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR">
       <body>
-        <Provider>
+        <ChakrProvider>
           {children}
-        </Provider>
+        </ChakrProvider>
       </body>
     </html>
   );
