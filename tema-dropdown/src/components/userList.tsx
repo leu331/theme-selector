@@ -19,8 +19,11 @@ import {Modal,
   ModalBody,
   ModalCloseButton,} from "@chakra-ui/modal"
 import { fetchUsers, fetchUserDetails } from "@/api/users";
+import { useColorModeValue } from "./color.mode";
 
 export default function UserList() {
+  const textColor = useColorModeValue("black", "white");
+   const bg = useColorModeValue("white", "gray.900");
   const { data, isLoading, error } = useQuery("users", fetchUsers);
 
  const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
@@ -42,10 +45,12 @@ export default function UserList() {
   if (error) return <Text>Erro ao carregar usuários</Text>;
 
   return (
-    <VStack align="stretch" mt={5}>
-     <SimpleGrid columns={4} gap={4}>
+    <VStack align="stretch" mt={1}>
+     <SimpleGrid columns={4} gap={4} paddingInline={7}>
   {data.map((user: any) => (
     <Button
+    bg={bg}
+      color={textColor}
       key={user.id}
       onClick={() => {
         setSelectedUserId(user.id);
@@ -53,7 +58,9 @@ export default function UserList() {
         openModal();
       }}
     >
-      {user.name}
+      <Text fontWeight="medium" fontSize={15}>
+         {user.name}
+      </Text>
     </Button>
   ))}
 </SimpleGrid>
@@ -66,9 +73,9 @@ export default function UserList() {
   <ModalContent
     maxW="400px"
     p={8}
-    bg="black"
+    bg="gray.900"
     borderRadius="16px"
-    color="white"
+    color={textColor}
     position="fixed"
     top="30%"
     left="40%"

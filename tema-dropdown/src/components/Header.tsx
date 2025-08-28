@@ -14,7 +14,7 @@ export default function Header({userName, bg, textColor}: HeaderProps) {
           <HStack justifyContent="space-between">
             <Heading fontSize={20}>Dashboard</Heading>
             <HStack gap={2}>
-                <Text fontWeight="550">Olá, ${userName}</Text>
+                <Text fontWeight="550">Olá, {userName}</Text>
                 <ColorModeButton /> 
             </HStack>
           </HStack>              
