@@ -46,7 +46,7 @@ export default function UserList() {
 
   return (
     <VStack align="stretch" mt={1}>
-     <SimpleGrid columns={4} gap={4} paddingInline={7}>
+     <SimpleGrid  columns={{ base: 1, sm: 2, md: 3, lg: 4 }}  gap={4} paddingInline={7}>
   {data.map((user: any) => (
     <Button
     bg={bg}
