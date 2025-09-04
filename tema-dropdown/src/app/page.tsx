@@ -10,16 +10,17 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   const bg = useColorModeValue("gray.100", "gray.900");
+     const bg1 = useColorModeValue("gray.300", "gray.600")
   const textColor = useColorModeValue("black", "white");
   const linkColor = useColorModeValue("blue.600", "blue.300");
 
   return (
     <ChakrProvider>
       <ReactQueryProvider>
-        <Box bg={bg} color={textColor} paddingBlock={5} paddingInline={8} mb={3}>
+        <Box bg={bg1} color={textColor} paddingBlock={5} paddingInline={8} mb={3} >
           <Header
           userName="Leuzimar"
-          bg={bg}
+          bg={bg1}
           textColor={textColor}
           />
         </Box>
@@ -29,11 +30,11 @@ export default function Home() {
         </Box>
 
         <Box w="100%">
-          <Footer empressName="DropD" bg={bg} textColor={textColor}/>
+          <Footer empressName="DropD" bg={bg1} textColor={textColor}/>
         </Box >
         
 
-        <UserList/>
+        <UserList bg={bg1}/>
       </ReactQueryProvider>
     </ChakrProvider>
   );
