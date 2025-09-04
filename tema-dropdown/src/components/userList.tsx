@@ -19,11 +19,11 @@ import {Modal,
   ModalBody,
   ModalCloseButton,} from "@chakra-ui/modal"
 import { fetchUsers, fetchUserDetails } from "@/api/users";
-import { useColorModeValue } from "./color.mode";
+import { useColorModeValue } from "./colorMode";
 
 export default function UserList() {
   const textColor = useColorModeValue("black", "white");
-   const bg = useColorModeValue("white", "gray.900");
+   const bg = useColorModeValue("gray.100", "gray.900");
   const { data, isLoading, error } = useQuery("users", fetchUsers);
 
  const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
@@ -80,6 +80,8 @@ export default function UserList() {
     top="30%"
     left="40%"
     transform="translate(-50%, -50%)"
+    border="2px solid"
+    borderColor={bg}
   >
     <Box marginLeft="auto" p={2}>
         <ModalCloseButton cursor="pointer"/>

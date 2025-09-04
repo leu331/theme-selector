@@ -2,13 +2,14 @@
 
 import { Box, Text  } from "@chakra-ui/react";
 import { ChakrProvider } from "@/providers/chakra.provider";
-import { ColorModeButton, useColorModeValue } from "@/components/color.mode";
+import { ColorModeButton, useColorModeValue } from "@/components/colorMode";
 import { ReactQueryProvider } from "@/providers/react.query.provider";
 import UserList from "@/components/userList";
-import Header from "@/components/Header";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Home() {
-  const bg = useColorModeValue("white", "gray.900");
+  const bg = useColorModeValue("gray.100", "gray.900");
   const textColor = useColorModeValue("black", "white");
   const linkColor = useColorModeValue("blue.600", "blue.300");
 
@@ -26,6 +27,11 @@ export default function Home() {
         <Box w="100%" display="flex" justifyContent="center" pb={4} mt={6}>
           <Text fontWeight="bold">Usuários Cadastrados</Text>
         </Box>
+
+        <Box w="100%">
+          <Footer empressName="DropD" bg={bg} textColor={textColor}/>
+        </Box >
+        
 
         <UserList/>
       </ReactQueryProvider>

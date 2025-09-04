@@ -1,5 +1,5 @@
 import { Box, Heading, HStack, VStack, Text } from "@chakra-ui/react";
-import { ColorModeButton } from "./color.mode";
+import { ColorModeButton } from "./colorMode";
 
 interface HeaderProps {
     userName?: string,
