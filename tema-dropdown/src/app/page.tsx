@@ -7,26 +7,38 @@ import { ReactQueryProvider } from "@/providers/react.query.provider";
 import UserList from "@/components/userList";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { SearchBar } from "@/components/searchBar";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+    const [searchQuery, setSearchQuery] = useState("");
+    
   const bg = useColorModeValue("gray.100", "gray.900");
      const bg1 = useColorModeValue("gray.300", "gray.600")
   const textColor = useColorModeValue("black", "white");
   const linkColor = useColorModeValue("blue.600", "blue.300");
+   const [mounted, setMounted] = useState(false);
+      useEffect(() => setMounted(true), []);
+        if (!mounted) return null; 
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query.toLowerCase())
+  }
 
   return (
     <ChakrProvider>
       <ReactQueryProvider>
-        <Box bg={bg1} color={textColor} paddingBlock={5} paddingInline={8} mb={3} >
+        <Box bg={bg1} color={textColor} paddingBlock={3} paddingInline={8} mb={4} >
           <Header
           userName="Leuzimar"
           bg={bg1}
           textColor={textColor}
           />
         </Box>
-
-        <Box w="100%" display="flex" justifyContent="center" pb={4} mt={6}>
-          <Text fontWeight="bold">Usuários Cadastrados</Text>
+         <Text display="flex" justifyContent="center" fontWeight="bold">Usuários Cadastrados</Text>
+        <Box w="100%" display="flex" justifyContent="center" pb={4} mt={3} paddingInline={8}>
+         
+          <SearchBar onSearch={handleSearch}/>
         </Box>
 
         <Box w="100%">
@@ -34,7 +46,7 @@ export default function Home() {
         </Box >
         
 
-        <UserList bg={bg1}/>
+        <UserList searchQuery={searchQuery} bg={bg1}/>
       </ReactQueryProvider>
     </ChakrProvider>
   );

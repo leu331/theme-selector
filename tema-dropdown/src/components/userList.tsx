@@ -24,11 +24,17 @@ import { useColorModeValue } from "./colorMode";
 
 interface UserListProps {
   bg: string
+  searchQuery: string
 }
 
-export default function UserList({bg}: UserListProps) {
+export default function UserList({bg, searchQuery}: UserListProps) {
   const textColor = useColorModeValue("black", "white");
   const { data, isLoading, error } = useQuery("users", fetchUsers);
+
+  const filteredUsers = data?.filter((user: any) =>
+  user.name.toLowerCase().includes(searchQuery.toLowerCase())
+) || [];
+
 
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +60,7 @@ export default function UserList({bg}: UserListProps) {
         gap={4}
         paddingInline={7}
       >
-        {data.map((user: any) => (
+        {filteredUsers.map((user: any) => (
           <Button
             bg={bg}
             color={textColor}

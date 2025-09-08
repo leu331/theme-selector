@@ -88,12 +88,12 @@ const tokens = {
 };
 
 const globalCss = {
-  ":root": { colorScheme: "light !important" },
+  ":root": { colorScheme: "light !important" }, 
   "*": { boxSizing: "border-box" },
   html: { height: "100%", overflow: "auto" },
   body: {
     minHeight: "100dvh",
-    backgroundColor: "{white.light}",
+    backgroundColor: "{white.light}", 
     color: "{primary.500.light}",
     fontFamily: "body",
     margin: 0,
@@ -101,10 +101,6 @@ const globalCss = {
     overflow: "auto",
   },
   "#__next": { display: "flex", flexDirection: "column", minHeight: "100dvh" },
-  h1: {
-    color: "{primary.900.light}",
-    fontFamily: "heading",
-  },
 };
 
 const customConfig = defineConfig({
