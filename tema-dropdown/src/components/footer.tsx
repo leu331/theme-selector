@@ -1,6 +1,5 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useColorModeValue } from "./colorMode";
 
 interface FooterProps {
   empressName: string;
@@ -22,7 +21,7 @@ export default function Footer({ empressName, bg, textColor }: FooterProps) {
       <HStack
         justifyContent="space-between"
         p={4}
-        paddingInline={7}
+        paddingInline={4}
         fontSize="14px"
       >
         <Link href="/">
